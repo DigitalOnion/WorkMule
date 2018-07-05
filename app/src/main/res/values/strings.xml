@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">WorkMule</string>
+
+    <string name="channel_name">WorkMule notifications</string>
+    <string name="channel_description">Notifications for the WorkMule practice application.</string>
+    <string name="channel_id">WORK_MULE_NOTIFICATION_CHANNEL_ID</string>
+    <string name="work_mule_notification_title">WorkMule Notification</string>
+
+    <string name="intro">Practice with Notifications and WorkManager</string>
+    <string name="notification_control">The Request button fires time consuming tasks that take seconds to complete. If you click again before the tasks are finished, the requests will be enqueued and process one after the other. \n\n The ViewModel presents progress notifications.\n\nIf you NAVIGATE AWAY from the fragment, tasks should still be processed.</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_request">Request</string>
+
+    <string name="title_intro">The WorkMule</string>
+    <string name="description">This practice app is an example of Notifications, ViewModel - LiveData and the WorkManager.</string>
+    <string name="swipe">swipe to other fragments</string>
+
+    <string name="title_viewmodel">Example using ViewModel</string>
+</resources>
