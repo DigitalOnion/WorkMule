@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="fragmentBackground">#f9fbe7</color>
+    <color name="fragmentViewModel">#bceef2</color>
+    <color name="fragmentWorkManager">#ffebee</color>
 </resources>

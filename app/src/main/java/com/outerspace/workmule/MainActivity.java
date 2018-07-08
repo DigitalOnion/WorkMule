@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,13 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Fragment[] pageFragments;
+    private Fragment[] pageFragments = {
+            new IntroFragment(),
+            new TestViewModelFragment(),
+            new WorkFragment(),
+    };
+
+    private IndexHandler index = new IndexHandler(pageFragments.length - 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         createNotificationChannel();
 
-        pageFragments = new Fragment[] {
-                new IntroFragment(),
-                new TestViewModelFragment(),
-        };
-
-        MyPagerAdapter pagerAdapter = new MyPagerAdapter(
-                getSupportFragmentManager()
-        );
-        ViewPager pager = (ViewPager) findViewById(R.id.pager);
-        pager.setAdapter(pagerAdapter);
+        presentFragment(index.next());
     }
 
     private void createNotificationChannel() {
@@ -52,20 +50,45 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public class MyPagerAdapter extends FragmentPagerAdapter {
+    public void onClickNextFragment(View view) {
+        presentFragment(index.next());
+    }
 
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
+    public void onClickPreviousFragment(View view) {
+        presentFragment(index.prev());
+    }
+
+    // NOTE: I had a ViewPager working, but it does not stop the fragments
+    // For the practice I need the fragments to pause and stop.
+    //
+    private void presentFragment(int index) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.frame, pageFragments[index]);
+        transaction.commit();
+    }
+
+    private class IndexHandler {
+        int max;
+        int idx;
+
+        IndexHandler(int max) {
+            this.max = max;
+            idx = max;
         }
 
-        @Override
-        public Fragment getItem(int position) {
-            return pageFragments[position];
+        int next() {
+            if( ++idx > max ) {
+                idx = 0;
+            }
+            return idx;
         }
 
-        @Override
-        public int getCount() {
-            return pageFragments.length;
+        int prev() {
+            if( --idx < 0 ) {
+                idx = max;
+            }
+            return idx;
         }
     }
 }

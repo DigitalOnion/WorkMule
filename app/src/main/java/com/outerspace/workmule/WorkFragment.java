@@ -5,21 +5,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class IntroFragment extends Fragment {
+public class WorkFragment extends Fragment {
 
-    public IntroFragment() { }     // Required empty public constructor
+    public WorkFragment() { } // Required empty public constructor
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.fragment_intro, container, false);
-        return fragment;
+        return inflater
+                .inflate(R.layout.fragment_work, container, false);
     }
 
 }
