@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="32dp"
     android:background="@drawable/thin_border"
-    tools:context=".TestViewModelFragment">
+    tools:context=".ViewModelFragment">
 
     <TextView
         android:id="@+id/title"

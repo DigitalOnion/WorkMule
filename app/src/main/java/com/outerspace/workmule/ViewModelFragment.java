@@ -18,7 +18,7 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TestViewModelFragment extends Fragment {
+public class ViewModelFragment extends Fragment {
 
     private Context context;
 
@@ -27,7 +27,7 @@ public class TestViewModelFragment extends Fragment {
     private String notificationTitle;
     private int notificationId;
 
-    public TestViewModelFragment() { }     // Required empty public constructor
+    public ViewModelFragment() { }     // Required empty public constructor
 
     @Override
     public View onCreateView(LayoutInflater inflater,

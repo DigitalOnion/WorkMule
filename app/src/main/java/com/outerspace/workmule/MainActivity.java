@@ -5,9 +5,7 @@ import android.app.NotificationManager;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Fragment[] pageFragments = {
             new IntroFragment(),
-            new TestViewModelFragment(),
-            new WorkFragment(),
+            new ViewModelFragment(),
+            new WorkManagerFragment(),
     };
 
     private IndexHandler index = new IndexHandler(pageFragments.length - 1);

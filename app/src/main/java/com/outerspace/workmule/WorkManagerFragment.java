@@ -5,19 +5,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WorkFragment extends Fragment {
+public class WorkManagerFragment extends Fragment {
 
-    public WorkFragment() { } // Required empty public constructor
+    public WorkManagerFragment() { } // Required empty public constructor
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater
+        View viewResult = inflater
                 .inflate(R.layout.fragment_work, container, false);
-    }
 
+        Button btnRequest = container.findViewById(R.id.btn_request);
+
+        return viewResult;
+    }
 }
